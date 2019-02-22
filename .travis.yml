@@ -4,6 +4,9 @@ cache:
   directories:
     - $HOME/.composer/cache
 
+addons:
+  mariadb: '10.1'
+
 matrix:
   fast_finish: true
   include:
@@ -33,7 +36,7 @@ before_install:
   - travis_retry composer require --no-update --no-interaction "illuminate/support:${LARAVEL}" "orchestra/testbench:${TESTBENCH}"
 
 install:
-  - travis_retry composer update --no-interaction --no-plugins --no-suggest --prefer-source ${COMPOSER_FLAGS}
+  - travis_retry composer install --no-interaction --no-plugins --no-suggest --prefer-source ${COMPOSER_FLAGS}
 
 before_script:
   - mysql -e 'create database db_rebuild;'
