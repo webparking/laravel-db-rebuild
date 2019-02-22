@@ -25,34 +25,15 @@ build:
       environment:
         php:
           version: 7.1.12
+      services:
+        mysql: 5.7
       tests:
+        before:
+          - command: mysql -e 'CREATE DATABASE db_rebuild;'
         override:
           - php-scrutinizer-run
           -
             command: vendor/bin/phpunit --coverage-clover=coverage71
             coverage:
               file: coverage71
-              format: php-clover
-    php72:
-      environment:
-        php:
-          version: 7.2.0
-      tests:
-        override:
-          - php-scrutinizer-run
-          -
-            command: vendor/bin/phpunit --coverage-clover=coverage72
-            coverage:
-              file: coverage72
-              format: php-clover
-    php73:
-      environment:
-        php:
-          version: 7.3.0
-      tests:
-        override:
-          - php-scrutinizer-run
-          - command: vendor/bin/phpunit --coverage-clover=coverage73
-            coverage:
-              file: coverage73
               format: php-clover
