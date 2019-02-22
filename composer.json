@@ -1,7 +1,29 @@
 {
-  "name": "webparking/db-rebuild",
-  "description": "This composer package provides a db:rebuild command.",
-  "license": "proprietary",
+  "name": "webparking/laravel-db-rebuild",
+  "description": "A laravel package that allows for quick database rebuilds with presets.",
+  "license": "MIT",
+  "keywords": [
+    "laravel",
+    "php",
+    "database",
+    "db",
+    "rebuild",
+    "seeding"
+  ],
+  "authors": [
+    {
+      "name": "Remko Brenters",
+      "email": "remko.brenters@webparking.nl"
+    },
+    {
+      "name": "Jeroen van Oort",
+      "email": "jeroen.vanoort@webparking.nl"
+    },
+    {
+      "name": "Peter Klooster",
+      "email": "peter.klooster@webparking.nl"
+    }
+  ],
   "require": {
     "php": ">=7.1.0",
     "ext-json": "*",

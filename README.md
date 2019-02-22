@@ -17,26 +17,26 @@ This allows you to easily seed different information for local development, your
 ## Installation
 Add this package to composer.
 
-```PHP
+```
 composer require webparking/laravel-db-rebuild
 ```
 
 Publish the config:
 
-```PHP
+```
 php artisan vendor:publish --provider="Webparking\DbRebuild\ServiceProvider"
 ```
 
 ## Usage
 The default usage is the following, this will use the default preset. It will also ask you if you're sure you want to reset the db.
 
-```PHP
+```
 php artisan db:rebuild
 ```
 
 You an skipp the question by adding the `--f` flag. You can change the preset by adding `--preset=test`
 
-```PHP
+```
 php artisan db:rebuild --preset=test --f
 ```
 
@@ -74,3 +74,16 @@ return [
     ],
 ];
 ```
+
+## Licence and Postcardware
+
+This software is open source and licensed under the MIT license.
+
+If you use this software in your daily development we would appreciate to receive a postcard of your hometown. Please send it to:
+
+**Webparking**
+
+Cypresbaan 31A
+2908 LT
+Capelle aan den IJssel
+The Netherlands
