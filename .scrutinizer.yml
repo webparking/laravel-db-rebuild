@@ -44,6 +44,7 @@ build:
             command: vendor/bin/phpunit --coverage-clover=coverage72
             coverage:
               file: coverage72
+              format: php-clover
     php73:
       environment:
         php:
