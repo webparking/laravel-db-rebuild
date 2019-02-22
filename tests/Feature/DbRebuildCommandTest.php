@@ -143,6 +143,25 @@ class DbRebuildCommandTest extends TestCase
         ]);
     }
 
+    public function testProduction(): void
+    {
+        app()['env'] = 'production';
+
+        $this->setConfig('default', [
+            'database' => config('database.connections.' . config('database.default') . '.database'),
+            'backup' => [],
+            'commands' => [],
+            'seeds' => [],
+        ]);
+
+        $command = $this->runCommand(app(DbRebuild::class), [], ['Yes']);
+        $output = $command->getDisplay();
+
+        $this->assertContains('Rebuilding in production is not allowed!', $output);
+
+        app()['env'] = 'testing';
+    }
+
     private function setConfig(string $key, array $config): void
     {
         config()->set('db-rebuild.presets.' . $key, $config);

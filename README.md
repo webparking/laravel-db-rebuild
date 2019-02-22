@@ -3,8 +3,14 @@
 </h1>
 
 <p align="center">
-  <a href="https://travis-ci.org/webparking/laravel-db-rebuild">
-      <img src="https://travis-ci.org/webparking/laravel-db-rebuild.svg?branch=master" alt="Build Status">
+    <a href="https://travis-ci.org/webparking/laravel-db-rebuild">
+        <img src="https://travis-ci.org/webparking/laravel-db-rebuild.svg?branch=master" alt="Build Status">
+    </a> 
+    <a href="https://scrutinizer-ci.com/g/webparking/laravel-db-rebuild/?branch=master">
+        <img src="https://scrutinizer-ci.com/g/webparking/laravel-db-rebuild/badges/quality-score.png?b=master" alt="Quality score">
+    </a> 
+    <a href="https://scrutinizer-ci.com/g/webparking/laravel-db-rebuild/?branch=master">
+        <img src="https://scrutinizer-ci.com/g/webparking/laravel-db-rebuild/badges/coverage.png?b=master" alt="Code coverage">
     </a> 
 </p>
 
@@ -77,13 +83,8 @@ return [
 
 ## Licence and Postcardware
 
-This software is open source and licensed under the MIT license.
+This software is open source and licensed under the [MIT license](LICENSE.md).
 
-If you use this software in your daily development we would appreciate to receive a postcard of your hometown. Please send it to:
+If you use this software in your daily development we would appreciate to receive a postcard of your hometown. 
 
-**Webparking**
-
-Cypresbaan 31A
-2908 LT
-Capelle aan den IJssel
-The Netherlands
+Please send it to: Webparking BV, Cypresbaan 31a, 2908 LT Capelle aan den IJssel, The Netherlands
