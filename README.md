@@ -3,8 +3,14 @@
 </h1>
 
 <p align="center">
-  <a href="https://travis-ci.org/webparking/laravel-db-rebuild">
-      <img src="https://travis-ci.org/webparking/laravel-db-rebuild.svg?branch=master" alt="Build Status">
+    <a href="https://travis-ci.org/webparking/laravel-db-rebuild">
+        <img src="https://travis-ci.org/webparking/laravel-db-rebuild.svg?branch=master" alt="Build Status">
+    </a> 
+    <a href="https://scrutinizer-ci.com/g/webparking/laravel-db-rebuild/?branch=master">
+        <img src="https://scrutinizer-ci.com/g/webparking/laravel-db-rebuild/badges/quality-score.png?b=master" alt="Quality score">
+    </a> 
+    <a href="https://scrutinizer-ci.com/g/webparking/laravel-db-rebuild/?branch=master">
+        <img src="https://scrutinizer-ci.com/g/webparking/laravel-db-rebuild/badges/coverage.png?b=master" alt="Code coverage">
     </a> 
 </p>
 
