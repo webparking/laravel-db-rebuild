@@ -13,6 +13,8 @@ class DbRebuildCommandTest extends TestCase
 {
     use RefreshDatabase;
 
+    public $mockConsoleOutput = false;
+
     public function testDefault(): void
     {
         $this->setConfig('default', [
