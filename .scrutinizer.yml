@@ -27,9 +27,9 @@ build:
           version: 7.1.12
       services:
         mysql: 5.7
+      commands:
+        - mysql -e 'CREATE DATABASE db_rebuild;'
       tests:
-        before:
-          - command: mysql -e 'CREATE DATABASE db_rebuild;'
         override:
           - php-scrutinizer-run
           -
