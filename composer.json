@@ -3,7 +3,7 @@
   "description": "This composer package provides a db:rebuild command.",
   "license": "proprietary",
   "require": {
-    "php": "^7.1",
+    "php": ">=7.2.0",
     "ext-json": "*",
     "ext-posix": "*",
     "illuminate/support": ">=5.5.0",
@@ -36,9 +36,9 @@
   },
   "require-dev": {
     "friendsofphp/php-cs-fixer": "^2.12",
-    "phpunit/phpunit": "^6.1|^7.0",
-    "orchestra/testbench": "~3.5.0|~3.6.0|~3.7.0",
-    "orchestra/database": "~3.5.0|~3.6.0|~3.7.0",
+    "phpunit/phpunit": "^6",
+    "orchestra/testbench": "~3.5",
+    "orchestra/database": "~3.5",
     "phpmd/phpmd": "^2.6",
     "phpstan/phpstan": "^0.11.2"
   },

@@ -18,6 +18,7 @@ matrix:
       env: LARAVEL='5.7.*' TESTBENCH='3.7.*'
 
 before_install:
+  - mysql -e 'CREATE DATABASE db_rebuild;'
   - travis_retry composer self-update
   - travis_retry composer require --no-update --no-interaction "illuminate/support:${LARAVEL}" "illuminate/console:${LARAVEL}" "orchestra/testbench:${TESTBENCH}"
 
@@ -26,3 +27,6 @@ install:
 
 script:
   - composer test
+
+notifications:
+  email: false
