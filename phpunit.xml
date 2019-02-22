@@ -20,7 +20,7 @@
         </whitelist>
     </filter>
     <php>
-        <env name="DB_HOST" value="localhost"/>
+        <env name="DB_HOST" value="127.0.0.1"/>
         <env name="DB_DATABASE" value="db_rebuild"/>
         <env name="DB_USERNAME" value="root"/>
         <env name="DB_PASSWORD" value=""/>

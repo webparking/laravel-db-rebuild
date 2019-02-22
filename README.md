@@ -77,13 +77,8 @@ return [
 
 ## Licence and Postcardware
 
-This software is open source and licensed under the MIT license.
+This software is open source and licensed under the [MIT license](LICENSE.md).
 
-If you use this software in your daily development we would appreciate to receive a postcard of your hometown. Please send it to:
+If you use this software in your daily development we would appreciate to receive a postcard of your hometown. 
 
-**Webparking**
-
-Cypresbaan 31A
-2908 LT
-Capelle aan den IJssel
-The Netherlands
+Please send it to: Webparking BV, Cypresbaan 31a, 2908 LT Capelle aan den IJssel, The Netherlands
