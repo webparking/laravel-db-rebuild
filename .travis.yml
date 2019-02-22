@@ -4,8 +4,8 @@ cache:
   directories:
     - $HOME/.composer/cache
 
-addons:
-  mariadb: '10.1'
+services:
+  - mysql
 
 matrix:
   fast_finish: true
@@ -23,9 +23,6 @@ before_install:
 
 install:
   - travis_retry composer update --no-interaction --no-plugins --no-suggest --prefer-source ${COMPOSER_FLAGS}
-
-before_script:
-  - mysql -e 'create database db_rebuild;'
 
 script:
   - composer test

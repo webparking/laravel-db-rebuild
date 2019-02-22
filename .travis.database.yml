@@ -1,0 +1,6 @@
+test:
+  adapter: mysql
+  database: db_rebuild
+  username: root
+  password: secret
+  encoding: utf8
