@@ -44,4 +44,14 @@ build:
             command: vendor/bin/phpunit --coverage-clover=coverage72
             coverage:
               file: coverage72
+    php73:
+      environment:
+        php:
+          version: 7.3.0
+      tests:
+        override:
+          - php-scrutinizer-run
+          - command: vendor/bin/phpunit --coverage-clover=coverage73
+            coverage:
+              file: coverage73
 format: php-clover
