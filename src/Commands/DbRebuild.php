@@ -106,8 +106,6 @@ class DbRebuild extends Command
 
                 return;
             }
-
-            $this->error('Table not found: ' . $table);
         });
     }
 
