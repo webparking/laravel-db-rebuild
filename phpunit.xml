@@ -20,7 +20,7 @@
         </whitelist>
     </filter>
     <php>
-        <env name="DB_HOST" value="mariadb"/>
+        <env name="DB_HOST" value="localhost"/>
         <env name="DB_DATABASE" value="db_rebuild"/>
         <env name="APP_KEY" value="base64:c4nauF70phCYhDTA71kqmrJy+jv6CA+85PNurbM/PPw="/>
     </php>
