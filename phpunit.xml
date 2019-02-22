@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="vendor/autoload.php"
+         backupGlobals="false"
+         backupStaticAttributes="false"
+         colors="true"
+         verbose="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false">
+    <testsuites>
+        <testsuite name="Webparking Test Suite">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist>
+            <directory suffix=".php">src/</directory>
+        </whitelist>
+    </filter>
+    <php>
+        <env name="DB_HOST" value="mariadb"/>
+        <env name="DB_DATABASE" value="db_rebuild"/>
+        <env name="DB_USERNAME" value="app"/>
+        <env name="DB_PASSWORD" value="secret"/>
+        <env name="APP_KEY" value="base64:c4nauF70phCYhDTA71kqmrJy+jv6CA+85PNurbM/PPw="/>
+    </php>
+</phpunit>

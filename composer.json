@@ -1,0 +1,46 @@
+{
+  "name": "webparking/db-rebuild",
+  "description": "This composer package provides a db:rebuild command.",
+  "license": "proprietary",
+  "require": {
+    "php": ">=7.2.0",
+    "ext-json": "*",
+    "ext-posix": "*",
+    "illuminate/support": ">=5.5.0",
+    "illuminate/console": ">=5.5.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Webparking\\DbRebuild\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Webparking\\DbRebuild\\Tests\\": "tests/",
+      "Webparking\\DbRebuild\\Tests\\Database\\": "tests/database"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Webparking\\DbRebuild\\ServiceProvider"
+      ]
+    }
+  },
+  "scripts": {
+    "phpstan": "@php vendor/bin/phpstan analyse config src tests/Feature -l max --no-progress --ansi",
+    "php-cs-fixer": "vendor/bin/php-cs-fixer fix . --config=.php_cs",
+    "phpmd": "vendor/bin/phpmd config,src,tests/Feature text cleancode,codesize,controversial,design,naming,unusedcode",
+    "phpunit": "vendor/bin/phpunit",
+    "test": "composer php-cs-fixer && composer phpstan && composer phpmd && composer phpunit"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^2.12",
+    "phpunit/phpunit": "^6",
+    "orchestra/testbench": "~3.5",
+    "orchestra/database": "~3.5",
+    "phpmd/phpmd": "^2.6",
+    "phpstan/phpstan": "^0.11.2"
+  },
+  "prefer-stable": true
+}
