@@ -117,7 +117,7 @@ class DbRebuild extends Command
             "This will drop all tables in {$database}. Are you sure you want to do this? [yes|no]",
             true
         )) {
-            $this->connection->statement('SET FOREIGN_KEY_CHECKS=0;');
+            $this->connection->getSchemaBuilder()->disableForeignKeyConstraints();
             $tables = $this->connection->select('SHOW TABLES');
 
             foreach ($tables as $table) {
@@ -126,7 +126,7 @@ class DbRebuild extends Command
                 $this->connection->getSchemaBuilder()->dropIfExists($tableName);
             }
 
-            $this->connection->statement('SET FOREIGN_KEY_CHECKS=1;');
+            $this->connection->getSchemaBuilder()->enableForeignKeyConstraints();
 
             $this->info("\nAll tables in {$database} dropped!");
 
