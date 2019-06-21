@@ -62,6 +62,12 @@ class DbRebuild extends Command
 
         $this->config = new Config($this->option('preset'));
 
+        if (!$this->realConfirm("This will drop all tables in {$this->config->getDatabase()}. Are you sure you want to do this? [yes|no]", true)) {
+            $this->warn('Stopped rebuild process!');
+
+            return;
+        }
+
         $this->backupData();
 
         try {
@@ -113,27 +119,22 @@ class DbRebuild extends Command
     {
         $database = $this->config->getDatabase();
 
-        if ($this->realConfirm(
-            "This will drop all tables in {$database}. Are you sure you want to do this? [yes|no]",
-            true
-        )) {
-            $this->connection->getSchemaBuilder()->disableForeignKeyConstraints();
-            $tables = $this->connection->select('SHOW TABLES');
+        $this->connection->getSchemaBuilder()->disableForeignKeyConstraints();
+        $tables = $this->connection->select('SHOW TABLES');
 
-            foreach ($tables as $table) {
-                $tableName = $table->{key($table)};
-                $this->info('dropping table ' . $tableName);
-                $this->connection->getSchemaBuilder()->dropIfExists($tableName);
-            }
-
-            $this->connection->getSchemaBuilder()->enableForeignKeyConstraints();
-
-            $this->info("\nAll tables in {$database} dropped!");
-
-            $this->info("\nMigration started");
-            $this->artisan->call('migrate');
-            $this->info('Migration finished');
+        foreach ($tables as $table) {
+            $tableName = $table->{key($table)};
+            $this->info('dropping table ' . $tableName);
+            $this->connection->getSchemaBuilder()->dropIfExists($tableName);
         }
+
+        $this->connection->getSchemaBuilder()->enableForeignKeyConstraints();
+
+        $this->info("\nAll tables in {$database} dropped!");
+
+        $this->info("\nMigration started");
+        $this->artisan->call('migrate');
+        $this->info('Migration finished');
     }
 
     private function callCommands(): void
