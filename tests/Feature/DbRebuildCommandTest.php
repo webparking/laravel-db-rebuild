@@ -33,6 +33,28 @@ class DbRebuildCommandTest extends TestCase
         $this->assertContains('Migration finished', $output);
     }
 
+    public function testCancel(): void
+    {
+        $this->setConfig('default', [
+            'database' => config('database.connections.' . config('database.default') . '.database'),
+            'backup' => [],
+            'commands' => [],
+            'seeds' => [
+                DatabaseSeeder::class,
+            ],
+        ]);
+
+        $command = $this->runCommand(app(DbRebuild::class), [], ['No']);
+        $output = $command->getDisplay();
+
+        $this->assertContains('This will drop all tables in db_rebuild. Are you sure you want to do this? [yes|no]', $output);
+        $this->assertContains('Stopped rebuild process!', $output);
+        $this->assertNotContains('All tables in db_rebuild dropped!', $output);
+        $this->assertNotContains('Migration started', $output);
+        $this->assertNotContains('Migration finished', $output);
+        $this->assertNotContains('Calling seeder: Webparking\\DbRebuild\\Tests\\Database\\DatabaseSeeder', $output);
+    }
+
     public function testForce(): void
     {
         $this->setConfig('default', [
