@@ -15,7 +15,7 @@ class Config
             throw new RuntimeException('Preset names must be strings');
         }
 
-        if (config('db-rebuild.presets.' . $preset) === null) {
+        if (null === config('db-rebuild.presets.' . $preset)) {
             throw new RuntimeException("Preset '{$preset}' doesn't exist");
         }
 
