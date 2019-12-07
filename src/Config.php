@@ -2,6 +2,8 @@
 
 namespace Webparking\DbRebuild;
 
+use RuntimeException;
+
 class Config
 {
     /** @var string */
@@ -10,11 +12,11 @@ class Config
     public function __construct($preset)
     {
         if (!\is_string($preset)) {
-            throw new \RuntimeException('Preset names must be strings');
+            throw new RuntimeException('Preset names must be strings');
         }
 
         if (config('db-rebuild.presets.' . $preset) === null) {
-            throw new \RuntimeException("Preset '{$preset}' doesn't exist");
+            throw new RuntimeException("Preset '{$preset}' doesn't exist");
         }
 
         $this->preset = $preset;
@@ -33,7 +35,7 @@ class Config
             return $data;
         }
 
-        throw new \RuntimeException("db-rebuild.presets.{$this->preset}.{$key} should be an array");
+        throw new RuntimeException("db-rebuild.presets.{$this->preset}.{$key} should be an array");
     }
 
     private function getStringConfig(string $key, string $default): string
@@ -44,7 +46,7 @@ class Config
             return $data;
         }
 
-        throw new \RuntimeException("db-rebuild.presets.{$this->preset}.{$key} should be a string");
+        throw new RuntimeException("db-rebuild.presets.{$this->preset}.{$key} should be a string");
     }
 
     public function getDatabase(): string
