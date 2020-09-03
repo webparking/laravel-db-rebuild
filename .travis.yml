@@ -30,6 +30,8 @@ matrix:
       env: LARAVEL='5.8.*' TESTBENCH='3.8.*'
     - php: 7.2
       env: LARAVEL='6.*' TESTBENCH='4.*'
+    - php: 7.2
+      env: LARAVEL='7.*' TESTBENCH='5.*'
     - php: 7.3
       env: LARAVEL='5.5.*' TESTBENCH='3.5.*'
     - php: 7.3
@@ -40,6 +42,8 @@ matrix:
       env: LARAVEL='5.8.*' TESTBENCH='3.8.*'
     - php: 7.3
       env: LARAVEL='6.*' TESTBENCH='4.*'
+    - php: 7.3
+      env: LARAVEL='7.*' TESTBENCH='5.*'
 
 before_install:
   - mysql -e 'CREATE DATABASE db_rebuild;'
