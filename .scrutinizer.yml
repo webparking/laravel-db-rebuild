@@ -21,17 +21,17 @@ checks:
 
 build:
   nodes:
-    php71:
+    php72:
       environment:
         php:
-          version: 7.1.12
+          version: 7.2
       services:
-        mysql: 5.7
+        mariadb: 10.3
       tests:
         override:
           - php-scrutinizer-run
           -
-            command: mysql -e 'CREATE DATABASE db_rebuild;' && vendor/bin/phpunit --coverage-clover=coverage71
+            command: mysql -e 'CREATE DATABASE db_rebuild;' && vendor/bin/phpunit --coverage-clover=coverage72
             coverage:
-              file: coverage71
+              file: coverage72
               format: php-clover
