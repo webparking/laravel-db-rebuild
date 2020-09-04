@@ -83,11 +83,18 @@ class DbRebuildConfigTest extends TestCase
         $this->runCommand(app(DbRebuild::class), [], ['Yes']);
     }
 
+    /**
+     * @param mixed[] $config
+     */
     private function setConfig(string $key, array $config): void
     {
         config()->set('db-rebuild.presets.' . $key, $config);
     }
 
+    /**
+     * @param mixed[] $arguments
+     * @param mixed[] $interactiveInput
+     */
     private function runCommand(Command $command, array $arguments = [], array $interactiveInput = []): CommandTester
     {
         $command->setLaravel(app());
