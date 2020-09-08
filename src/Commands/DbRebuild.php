@@ -35,7 +35,7 @@ class DbRebuild extends Command
     private $artisan;
 
     /**
-     * @var \Illuminate\Support\Collection
+     * @var \Illuminate\Support\Collection<mixed>
      */
     protected $backup;
 
@@ -60,7 +60,9 @@ class DbRebuild extends Command
             return;
         }
 
-        $this->config = new Config($this->option('preset'));
+        /** @var string $preset */
+        $preset = $this->option('preset');
+        $this->config = new Config($preset);
 
         if (!$this->realConfirm("This will drop all tables in {$this->config->getDatabase()}. Are you sure you want to do this? [yes|no]", true)) {
             $this->warn('Stopped rebuild process!');
@@ -165,11 +167,7 @@ class DbRebuild extends Command
         }
 
         $answer = $this->choice($msg, ['No', 'Yes'], (true === $default) ? '1' : '0');
-        switch ($answer) {
-            case 'No':
-                return false;
-            case 'Yes':
-                return true;
-        }
+
+        return 'Yes' === $answer;
     }
 }

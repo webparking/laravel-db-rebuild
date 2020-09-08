@@ -11,7 +11,7 @@ matrix:
   fast_finish: true
   include:
     - php: 7.1
-      env: LARAVEL='5.5.*' TESTBENCH='3.5.*' COMPOSER_FLAGS='--prefer-lowest'
+      env: LARAVEL='5.5.*' TESTBENCH='3.5.*'
     - php: 7.1
       env: LARAVEL='5.5.*' TESTBENCH='3.5.*'
     - php: 7.1
@@ -29,7 +29,9 @@ matrix:
     - php: 7.2
       env: LARAVEL='5.8.*' TESTBENCH='3.8.*'
     - php: 7.2
-      env: LARAVEL='6.*' TESTBENCH='4.*'
+      env: LARAVEL='^6' TESTBENCH='^4'
+    - php: 7.2
+      env: LARAVEL='^7' TESTBENCH='^5'
     - php: 7.3
       env: LARAVEL='5.5.*' TESTBENCH='3.5.*'
     - php: 7.3
@@ -39,15 +41,18 @@ matrix:
     - php: 7.3
       env: LARAVEL='5.8.*' TESTBENCH='3.8.*'
     - php: 7.3
-      env: LARAVEL='6.*' TESTBENCH='4.*'
+      env: LARAVEL='^6' TESTBENCH='^4'
+    - php: 7.3
+      env: LARAVEL='^7' TESTBENCH='^5'
 
 before_install:
   - mysql -e 'CREATE DATABASE db_rebuild;'
   - travis_retry composer self-update
-  - COMPOSER_MEMORY_LIMIT=-1 travis_retry composer require --no-update --no-interaction "illuminate/support:${LARAVEL}" "illuminate/console:${LARAVEL}" "illuminate/database:${LARAVEL}" "orchestra/testbench:${TESTBENCH}"
+  - composer global require hirak/prestissimo
+  - COMPOSER_MEMORY_LIMIT=-1 travis_retry composer require --no-update --no-interaction "illuminate/support:${LARAVEL}" "illuminate/console:${LARAVEL}" "illuminate/database:${LARAVEL}" "orchestra/testbench:${TESTBENCH}" "orchestra/database:${TESTBENCH}"
 
 install:
-  - COMPOSER_MEMORY_LIMIT=-1 travis_retry composer update --no-interaction --no-plugins --no-suggest --prefer-source ${COMPOSER_FLAGS}
+  - COMPOSER_MEMORY_LIMIT=-1 travis_retry composer install --no-interaction
 
 script:
   - composer test

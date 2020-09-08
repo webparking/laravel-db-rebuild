@@ -13,6 +13,9 @@ class DbRebuildCommandTest extends TestCase
 {
     use RefreshDatabase;
 
+    /**
+     * @var bool 
+     */
     public $mockConsoleOutput = false;
 
     public function testDefault(): void
@@ -184,11 +187,18 @@ class DbRebuildCommandTest extends TestCase
         app()['env'] = 'testing';
     }
 
+    /**
+     * @param mixed[] $config
+     */
     private function setConfig(string $key, array $config): void
     {
         config()->set('db-rebuild.presets.' . $key, $config);
     }
 
+    /**
+     * @param mixed[] $arguments
+     * @param mixed[] $interactiveInput
+     */
     private function runCommand(Command $command, array $arguments = [], array $interactiveInput = []): CommandTester
     {
         $command->setLaravel(app());
