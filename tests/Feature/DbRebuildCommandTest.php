@@ -14,7 +14,7 @@ class DbRebuildCommandTest extends TestCase
     use RefreshDatabase;
 
     /**
-     * @var bool 
+     * @var bool
      */
     public $mockConsoleOutput = false;
 
